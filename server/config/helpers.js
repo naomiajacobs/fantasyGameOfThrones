@@ -74,6 +74,7 @@ function addRosters(users, rosters) {
 
 // returns a promise
 function addEvents(rows, roster, episodeLimit, totalPoints) {
+  console.log('total points: ', totalPoints);
   // base case
   if (rows.length === 0) {
     roster.points = totalPoints;
@@ -93,7 +94,7 @@ function addEvents(rows, roster, episodeLimit, totalPoints) {
   // find points, add to roster, and recurse
   return db.Event.sum('points', {where: {characterId, episode}})
   .then(function(sum) {
-    totalPoints += sum;
+    totalPoints += (sum || 0);
     roster[episode].push([characterId, sum || 0]);
     rows.shift();
     return addEvents(rows, roster, episodeLimit, totalPoints);
