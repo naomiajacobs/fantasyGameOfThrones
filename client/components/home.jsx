@@ -23,7 +23,7 @@ class Home extends Component {
           {this.props.characters.map((char) => {   
             return (
               <tr key={char.id}>    
-                <td className="data">
+                <td className="data charName">
                   <div>{char.name}</div>
                   <img className="thumb" src={char.imageUrl}></img>
                 </td>

@@ -46,7 +46,7 @@
   background-color: rgba(255,182,193,0.5);
   flex: 1 0 30em;
 }
-#left, #right {
+#right {
    background-color: rgba(135,206,250,0.5);
    flex: 0 0 12em;
 }
@@ -65,17 +65,18 @@ ol, ul {
 table {
   border: black 2px solid;
   table-layout: fixed;
+  width: 95%;
 }
 li {
   padding: 10px;
 }
 td {
   text-align: center;
+  font-size: 18px;
 }
 .leftHeader, .leftNavTabs{
   display: flex;
   flex-direction: row;
-  border: red;
 }
 caption {
   font-weight: 700;
@@ -89,6 +90,9 @@ table caption {
 }
 .data {
   border: black 1px solid;
+  font-size: 18px;
+}
+.charName {
   font-size: 10px;
 }
 .sideBarText {
