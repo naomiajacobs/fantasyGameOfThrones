@@ -14,7 +14,6 @@ class App extends Component {
       <div id="composedApp">
         <Header />
         <div id="body">
-          <LeftNav />
           <Content />
           <RightNav />
         </div>

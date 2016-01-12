@@ -11,7 +11,7 @@ class Home extends Component {
         <caption> My Roster </caption>   
         <thead>   
           <tr>    
-            <td className="heading">Character</td>   
+            <td class="heading">Character</td>   
             {this.props.episodes.map((ep) => {
               return (
                 <td key={ep} className="heading">Episode {ep}</td>
@@ -23,7 +23,7 @@ class Home extends Component {
           {this.props.characters.map((char) => {   
             return (
               <tr key={char.id}>    
-                <td className="data">
+                <td class="data">
                   <div>{char.name}</div>
                   <div>{char.house}</div>
                   <img className="thumb" src={char.imageUrl}></img>

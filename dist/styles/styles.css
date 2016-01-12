@@ -26,7 +26,9 @@
   background-color: rgba(127,255,212,0.5);
 }
 #header {
-  justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 #footer {
   justify-content: center;
@@ -63,6 +65,17 @@ ol, ul {
 table {
   border: black 2px solid;
 }
+li {
+  padding: 10px;
+}
+td {
+  text-align: center;
+}
+.leftHeader, .leftNavTabs{
+  display: flex;
+  flex-direction: row;
+  border: red;
+}
 caption {
   font-weight: 700;
   font-size: 24px;
@@ -77,11 +90,8 @@ table caption {
   border: black 1px solid;
   font-size: 12px;
 }
-.characterTable .playerTable .teamTable {
-  float: left;
-}
 .sideBarText {
-  font-size: 12px;
+  font-size: 16px;
 }
 .thumb {
   width: 75px;
