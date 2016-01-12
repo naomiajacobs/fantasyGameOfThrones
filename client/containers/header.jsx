@@ -27,13 +27,12 @@ class Header extends Component {
   }
 
   render() {
-    const tabs = ['HOME', 'DRAFT', 'TRADE', 'RANKINGS', 'ROSTERS', 'NEW LEAGUE'];
     return (
       <div id="header">
         <div className="leftHeader">
           <h1>FGOT</h1>
           <ul className="leftNavTabs">
-            {this.renderTabs(tabs)}
+            {this.renderTabs(this.props.tabs)}
           </ul>
         </div>
         <div className="RightHeader">
@@ -48,7 +47,13 @@ class Header extends Component {
 };
 
 const select = (state) => {
+  let tabs = ['HOME', 'DRAFT', 'TRADE', 'RANKINGS', 'ROSTERS'];
+  if (!state.data.league) {
+    tabs.push('NEW LEAGUE');
+  }
+
   return {
+    tabs,
   };
 };
 

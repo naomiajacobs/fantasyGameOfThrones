@@ -64,6 +64,7 @@ ol, ul {
 }
 table {
   border: black 2px solid;
+  table-layout: fixed;
 }
 li {
   padding: 10px;
@@ -88,12 +89,12 @@ table caption {
 }
 .data {
   border: black 1px solid;
-  font-size: 12px;
+  font-size: 10px;
 }
 .sideBarText {
   font-size: 16px;
 }
 .thumb {
-  width: 75px;
+  width: 60px;
   height: auto;
 }
