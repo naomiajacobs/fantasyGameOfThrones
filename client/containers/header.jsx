@@ -38,7 +38,10 @@ class Header extends Component {
     return (
       <div id="header">
         <div className="leftHeader">
-          <h1>FGOT</h1>
+          <div className="logo">
+            <h1 className="logo-main">Game of Thrones</h1>
+            <h1 className="logo-sub">Fantasy League</h1>
+          </div>
           <ul className="leftNavTabs">
             {this.renderTabs(this.props.tabs)}
           </ul>

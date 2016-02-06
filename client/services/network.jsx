@@ -1,10 +1,8 @@
 'use strict';
 
 import store from './store.jsx';
-//json dev server @3000, web-server@4000, node@8000
-//json server has no /api, node server to hae /api route 
+// web-server@4000, node@8000, db@2391
 let url = 'http://localhost:8000';
-
 
 let makeParams = (method, body) => {
 

@@ -18,7 +18,6 @@ class App extends Component {
           <Content />
           {this.props.contentDisplay !== 'DRAFT' ? <RightNav /> : null}
         </div>
-        <Footer />
         {this.props.children}
       </div>
     );

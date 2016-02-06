@@ -1,8 +1,3 @@
-/*@font-face {
-  font-family: 'gameOfThrones',
-  src: url('../assets/gameofthrones.ttf');
-}*/
-
 /* HTML5 display-role reset for older browsers */
 
 .clickable {
@@ -23,12 +18,12 @@
 }
 #header, #footer{
   display: flex;
-  background-color: rgba(127,255,212,0.5);
 }
 #header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border-bottom: 1px gray solid;
 }
 #footer {
   justify-content: center;
@@ -39,12 +34,11 @@
 }
 #center {
   overflow: scroll;
-  background-color: rgba(255,182,193,0.5);
   flex: 1 0 30em;
 }
 #right {
-   background-color: rgba(135,206,250,0.5);
    flex: 0 0 12em;
+   border-left: 1px gray solid;
 }
 #left {
   order: -1;
@@ -54,28 +48,46 @@
   justify-content: center;
 }
 body {
-  background-color: #ccc;
   font-family: 'Montserrat', sans-serif;
   margin: 0;
 }
 ol, ul {
-  list-style: none;
+  padding: 0;
+  list-style-type: none;
 }
 table {
-  border: black 2px solid;
+  /*border: black 1px gray solid;*/
   table-layout: fixed;
   width: 95%;
+  border-collapse: collapse;
 }
 li {
   padding: 10px;
 }
+tr {
+  border-bottom: 1px gray solid;
+}
 td {
   text-align: center;
-  font-size: 18px;
+  font-size: .8em;
 }
 .leftHeader, .leftNavTabs{
   display: flex;
   flex-direction: row;
+}
+.logo {
+  margin-right: 20px;
+}
+.logo-main .logo-sub{
+  margin: 5px;
+}
+.logo-main {
+  font-size: 1.5em;
+  text-align: center;
+}
+.logo-sub {
+  font-size: 1.25em;
+  text-align: center;
 }
 .currentTab {
   border-bottom: 3px solid black;
@@ -85,17 +97,21 @@ caption {
   font-size: 24px;
 }
 table caption {
-  font-family: 'Noticia Text', sans-serif;
-}
-.heading {
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
 }
+.heading {
+  font-weight: 400;
+  font-size: .8em;
+}
 .data {
-  border: black 1px solid;
-  font-size: 18px;
+  /*border: black 1px solid;*/
+  font-size: .8em;
 }
 .charName {
-  font-size: 10px;
+  font-size: .6em;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
 }
 .sideBarText {
   font-size: 16px;
@@ -126,8 +142,8 @@ table caption {
   justify-content: space-between;
 }
 .draft_character_container {
-  width: 10em;
-  height: 4em;
+  width: 20em;
+  height: auto;
   cursor: pointer;
 }
 .draft_character_container:hover{
