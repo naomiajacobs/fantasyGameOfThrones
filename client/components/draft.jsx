@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import actions from '../services/actionCreators.jsx';
 import io from 'socket.io-client';
+import Character from './character.jsx';
 
 const SOCKET_URL = process.env.SOCKET_URL.toString() || "localhost"
 
@@ -94,10 +95,7 @@ class Draft extends Component {
       <div className={this.state.currentTeamId === id ? 'current_team':''} key={key}>
         {this.state.userById[id].username}
         {this.state.teams[id-1].characters.map((id, i) => (
-          <div>
-            <div key={i}>{this.state.charById[id].name}</div>
-            <img className="thumb" src={char.imageUrl}></img>
-          </div>
+            <Character key={i} char={this.state.charById[id]} />
         ))}
       </div>
     );
@@ -153,14 +151,12 @@ class Draft extends Component {
           .filter((char) => !this.state.picked[char.id])
           .map((char,i) => {
           return (
-            <div 
+            <Character 
               key={i} 
               className="draft_character_container"
               onClick={this.draftCharacter.bind(this,char.id)}
-              >
-              <span > {char.name} </span>
-              <img className="thumb" src={char.imageUrl}></img>
-            </div>
+              char={char}
+            />
           );
         })}
       </div>

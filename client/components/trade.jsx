@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import actions from '../services/actionCreators.jsx';
+import Character from './character.jsx';
 
 class Trade extends Component {
   // dispatch each time a character is clicked, update the state
@@ -119,8 +120,7 @@ class Trade extends Component {
         if (i < 8) {
           return (
             <li key={key}>
-              <div>{char[name]}</div>
-                <img className="thumb" src={char[image]}></img>
+              <Character char={char} />
             </li>
           ); 
         }  
@@ -132,11 +132,8 @@ class Trade extends Component {
     const buildTradeView = (roster, action) => {
       return roster.map((char) => {
         return (
-          <li key={char.id}>
-            <div>{char.name}</div>
-            <button onClick={() => this.props.dispatch(actions.changeTradeChar(char.id, action))}>
-              <img className="thumb" src={char.imageUrl}></img>
-            </button>
+          <li key={char.id} onClick={() => this.props.dispatch(actions.changeTradeChar(char.id, action))}>
+            <Character char={char} />
           </li>
         );
       });

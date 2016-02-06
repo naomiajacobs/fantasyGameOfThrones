@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import actions from '../services/actionCreators.jsx';
+import Character from './character.jsx';
 
 class Roster extends Component {
 
@@ -53,10 +54,7 @@ class Roster extends Component {
           {characters.map((char) => {   
             return (
               <tr key={char.id}>    
-                <td className="data charName">
-                  <div>{char.name}</div>
-                  <img className="thumb" src={char.imageUrl}></img>
-                </td>
+                <td className="data charName"><Character char={char} /></td>
                 {episodes.map((ep) => {
                   return <td className="data" key={ep}>
                     {roster[ep][char.id] === undefined || roster[ep][char.id] === null ? '' : roster[ep][char.id]}
