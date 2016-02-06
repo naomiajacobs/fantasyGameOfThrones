@@ -95,7 +95,12 @@ class Draft extends Component {
     return (
       <div className={this.state.currentTeamId === id ? 'current_team':''} key={key}>
         {this.state.userById[id].username}
-        {this.state.teams[id-1].characters.map((id, i) => (<div key={i}>{this.state.charById[id].name}</div>))}
+        {this.state.teams[id-1].characters.map((id, i) => (
+          <div>
+            <div key={i}>{this.state.charById[id].name}</div>
+            <img className="thumb" src={char.imageUrl}></img>
+          </div>
+        ))}
       </div>
     );
   }
@@ -156,6 +161,7 @@ class Draft extends Component {
               onClick={this.draftCharacter.bind(this,char.id)}
               >
               <span > {char.name} </span>
+              <img className="thumb" src={char.imageUrl}></img>
             </div>
           );
         })}

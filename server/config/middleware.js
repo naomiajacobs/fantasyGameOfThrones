@@ -9,8 +9,8 @@ module.exports = function (app) {
   app.use(helpers.logger);
   app.use(helpers.cors);
   app.use(bodyParser.urlencoded({extended : true}));
-  app.use(bodyParser.json());
   app.use(express.static(__dirname + '/../../dist'));
+  app.use(bodyParser.json());
 
   app.use(helpers.errorLogger);
   app.use(helpers.errorHandler);
