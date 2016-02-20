@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import actions from './../../../services/actionCreators.jsx'
 import io from 'socket.io-client';
+import Character from '../../common/character/character.jsx';
 
 import './draft.less';
 
@@ -27,6 +28,7 @@ class Draft extends Component {
     }
     return timeString;
   }
+  
 
   componentDidMount () {
     const teamById = {};
@@ -95,12 +97,7 @@ class Draft extends Component {
     return (
       <div className={this.state.currentTeamId === id ? 'current_team':''} key={key}>
         {this.state.userById[id].username}
-        {this.state.teams[id-1].characters.map((id, i) => (
-          <div>
-            <div key={i}>{this.state.charById[id].name}</div>
-            <img className="thumb" src={char.imageUrl}></img>
-          </div>
-        ))}
+        {this.state.teams[id-1].characters.map((id, i) => (<div key={i}>{this.state.charById[id].name}</div>))}
       </div>
     );
   }
@@ -160,8 +157,7 @@ class Draft extends Component {
               className="character_container"
               onClick={this.draftCharacter.bind(this,char.id)}
               >
-              <span > {char.name} </span>
-              <img className="thumb" src={char.imageUrl}></img>
+              <Character char={char} />
             </div>
           );
         })}

@@ -38,11 +38,11 @@ class Header extends Component {
 
   render() {
     return (
-      <div id="got__header">
+      <div className="got__header">
         <div className="left_header">
           <div className="logo">
-            <h1 className="logo-main">Game of Thrones</h1>
-            <h1 className="logo-sub">Fantasy League</h1>
+            <h1 className="logo_main">Game of Thrones</h1>
+            <h1 className="logo_sub">Fantasy League</h1>
           </div>
           <ul className="left_nav_tabs">
             {this.renderTabs(this.props.tabs)}
