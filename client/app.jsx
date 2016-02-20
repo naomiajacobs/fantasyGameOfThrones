@@ -18,7 +18,6 @@ class App extends Component {
         <Header />
         <div className="body_container">
           <Content />
-          {this.props.contentDisplay !== 'DRAFT' ? <RightNav /> : null}
         </div>
         {this.props.children}
       </div>
