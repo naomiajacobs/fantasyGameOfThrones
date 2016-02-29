@@ -1,0 +1,43 @@
+@import '../../../variables.less';
+
+.got__header{
+  background-color: @mainDark;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+  .left_header {
+    display: flex;
+    flex-direction: row;
+  }
+  .left_nav_tabs {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    align-self: center;
+  }
+  .right_header {
+    text-align: center;
+  }
+  .clickable {
+    cursor: pointer;
+  }
+  .currentTab {
+    border-bottom: 3px solid @accent;
+  }
+  .logo_main {
+    font-size: 1.5em;
+    text-align: center;
+    margin: 10px;
+  }
+  .logo_sub {
+    font-size: 1.25em;
+    text-align: center;
+  }
+  .logo {
+    margin-right: 20px;
+    background-color: @accent;
+  }
+
+}

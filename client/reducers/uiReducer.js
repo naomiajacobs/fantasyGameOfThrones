@@ -1,13 +1,26 @@
 import {combineReducers} from 'redux';
 import * as constants from '../services/actionConstants.jsx'
 
+const loggedIn = (state = false, action) => {
+  switch(action.type) {
+    case constants.LOGIN_SUCCESS:
+      return true;
+    case constants.SIGNUP_SUCCESS:
+      return true;
+    case constants.LOGOUT:
+      return false;
+    default:
+      return state;
+  }
+}
+
 const contentDisplay = (state = 'HOME', action) => {
-  switch(action.type){
+  switch(action.type) {
     case constants.CHANGE_MAIN_COMPONENT:
       return action.payload.tab;
     case constants.CREATE_LEAGUE_SUCCESS:
       return 'HOME';
-    case constants.CHANGE_ROSTER_USER:
+    case constants.CHANGE_ROSTER_PLAYER:
       return 'ROSTERS';
     case constants.LEAVE_LEAGUE_SUCCESS: 
       return 'HOME';
@@ -31,9 +44,9 @@ const authDisplay = (state = 'LOGIN', action) => {
   }
 };
 
-const rosterUser = (state = {}, action) => {
+const rosterPlayer = (state = {}, action) => {
   switch(action.type) {
-    case constants.CHANGE_ROSTER_USER:
+    case constants.CHANGE_ROSTER_PLAYER:
       return action.payload.user;
     case constants.LEAVE_LEAGUE_SUCCESS: 
       return {};
@@ -58,6 +71,7 @@ const tradeDisplay = (state = {dropCharId: null, addCharId: null}, action) => {
 export default combineReducers({
   contentDisplay,
   authDisplay,
-  rosterUser,
-  tradeDisplay
+  rosterPlayer,
+  tradeDisplay,
+  loggedIn
 });

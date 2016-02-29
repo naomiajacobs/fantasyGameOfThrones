@@ -1,42 +1,53 @@
-.got__header{
-  background-color: #455A64;
+@import './../../../variables.less';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-header {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-left: 20px;
+}
+
+.right-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.username {
+  color: @accent;
+  font-size: 1.75em;
+}
+
+.logout {
+  margin: 0;
+  padding: 0;
+}
+
+.logo {}
+
+.logo-main {}
+
+.logo-sub {}
+
+.tabs {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+  align-items: center;
+}
 
-  .left_header {
-    display: flex;
-    flex-direction: row;
-  }
-  .left_nav_tabs {
-    display: flex;
-    flex-direction: row;
-    height: 40px;
-    align-self: center;
-  }
-  .right_header {
-    text-align: center;
-  }
-  .clickable {
-    cursor: pointer;
-  }
-  .currentTab {
-    border-bottom: 3px solid #FF5722;
-  }
-  .logo-main .logo-sub{
-    margin: 5px;
-  }
-  .logo_main {
-    font-size: 1.5em;
-    text-align: center;
-  }
-  .logo_sub {
-    font-size: 1.25em;
-    text-align: center;
-  }
-  .logo {
-    margin-right: 20px;
-  }
+.left-header .tab {
+  margin-left: 15px;
+  padding-bottom: 5px;
+  border-bottom: 3px solid @mainDark;
+}
 
+.left-header .currentTab {
+  border-bottom: 3px solid @accent;
 }

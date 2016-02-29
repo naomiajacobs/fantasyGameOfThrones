@@ -15,9 +15,9 @@ export const changeAuthDisplay = (authDisplay) => {
   }
 };
 
-export const changeRosterUser = (user) => {
+export const changeRosterPlayer = (user) => {
   return {
-    type: constants.CHANGE_ROSTER_USER,
+    type: constants.CHANGE_ROSTER_PLAYER,
     payload: {user}
   }
 };

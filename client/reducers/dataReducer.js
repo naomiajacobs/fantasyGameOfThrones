@@ -1,6 +1,22 @@
 import {combineReducers} from 'redux';
 import * as constants from '../services/actionConstants.jsx';
 
+const inALeague = (state = false, action) => {
+  switch(action.type) {
+    case constants.LOGIN_SUCCESS:
+      return action.payload.league ? true : false;
+    case constants.SIGNUP_SUCCESS:
+      return false;
+    case constants.ACCEPT_INVITATION_SUCCESS:
+      return true;
+    case constants.LEAVE_LEAGUE_SUCCESS:
+      return false;
+    case constants.CREATE_LEAGUE_SUCCESS:
+      return true;
+    default:
+      return state;
+  }
+}
 
 const league = (state = {}, action) => {
   switch(action.type) {
@@ -117,5 +133,6 @@ export default combineReducers({
   events,
   auth,
   draft,
-  invitations
+  invitations,
+  inALeague
 });

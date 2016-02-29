@@ -14,7 +14,7 @@ let rootElement = document.getElementById('app');
 render (
   <Provider store={ store }>
     
-      <App className="got__index">
+      <App className="index">
         {process.env.NODE_ENV === 'devtools' ? <DevTools /> : null}
       </App>
     

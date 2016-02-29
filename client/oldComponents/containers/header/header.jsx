@@ -6,17 +6,17 @@ import classNames from 'classnames';
 import './header.less';
 
 class Header extends Component {
+
   renderTabs(tabs) {
     var context = this;
     return tabs.map((tab, i) => {
-      var classes = classNames('clickable', 'tab', {
+      var classes = classNames('clickable', {
         currentTab: context.props.currentTab === tab,
       });
       return (
         <li key={i} 
             className={classes}
-            // onClick={this.navigate.bind(this,tab)}>
-            onClick={() => { this.navigate(tab); }}>
+            onClick={this.navigate.bind(this,tab)}>
           {tab}
         </li>
       );
@@ -30,7 +30,7 @@ class Header extends Component {
       case 'JOIN A LEAGUE':
         return this.props.dispatch(actions.navigateTo('JOIN_A_LEAGUE'));
       case 'ROSTERS':
-        return this.props.dispatch(actions.changeRosterPlayer(this.props.rosterPlayer));
+        return this.props.dispatch(actions.changeRosterPlayer(this.props.user));
       default:
         this.props.dispatch(actions.navigateTo(tab));
     }
@@ -38,45 +38,46 @@ class Header extends Component {
 
   render() {
     return (
-      <div className='header'>
-        <div className='left-header'>
-          <div className='logo'>
-            <h1 className='logo-main'>Game of Thrones</h1>
-            <h1 className='logo-sub'>Fantasy League</h1>
+      <div className="got__header">
+        <div className="left_header">
+          <div className="logo">
+            <h1 className="logo_main">Game of Thrones</h1>
+            <h1 className="logo_sub">Fantasy League</h1>
           </div>
-          <ul className='tabs'>
+          <ul className="left_nav_tabs">
             {this.renderTabs(this.props.tabs)}
           </ul>
         </div>
-        <div className='right-header'>
-          <div className='username'>{this.props.username.toUpperCase()}</div>
-          <ul className='logout clickable tab' onClick={() => { this.navigate('LOGOUT'); }}>LOGOUT</ul>
+        <div className="right_header">
+          <ul>
+            {this.renderTabs(['LOGOUT'])}
+          </ul>
         </div>
       </div>
     );
   }
-}
+
+};
 
 const select = (state) => {
-  const tabs = ['HOME', 'DRAFT', 'TRADE', 'RANKINGS', 'ROSTERS'];
-  if (!state.data.inALeague) {
+  let tabs = ['HOME', 'DRAFT', 'TRADE', 'RANKINGS', 'ROSTERS'];
+  if (Object.keys(state.data.league).length === 0) {
     tabs.push('JOIN A LEAGUE');
   } else {
     tabs.push('LEAGUE');
   }
 
-  // if roster player has been set previously, keep same one
-  // else display roster of uesr
+  // check if emtpy object
   var rosterPlayer = Object.keys(state.ui.rosterPlayer).length === 0 ? state.data.auth.self : state.ui.rosterPlayer;
 
   return {
     tabs,
-    username: state.data.auth.self.username,
-    rosterPlayer: rosterPlayer,
+    user: rosterPlayer,
     currentTab: state.ui.contentDisplay || 'HOME',
   };
-
-}
+};
 
 export default connect(select)(Header);
+
+
 
