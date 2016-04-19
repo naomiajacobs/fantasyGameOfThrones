@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-// import Home from './../Home/home.jsx';
+import Home from './../../Home/home.jsx';
 // import Trade from './../Trade/trade.jsx';
 // import Draft from './../Draft/draft.jsx';
 // import JoinLeague from './../JoinLeague/joinLeague.jsx';
@@ -14,7 +14,7 @@ class Content extends Component {
   renderMain() {
     switch(this.props.contentDisplay) {
       case 'HOME':
-        // return <Home/>;
+        return <Home/>;
       case 'TRADE':
         // return <Trade/>;
       case 'DRAFT':

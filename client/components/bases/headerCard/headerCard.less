@@ -1,20 +1,20 @@
 @import './../../../variables.less';
 
 .headerCard {
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  justify-content: space-between;
   color: @mainFontColor;
   font-family: @mainFont;
 }
 
 .headerCard-header {
-  flex: 1;
-  box-shadow: 0 3px 6px black;
-  background: @mainDark
+  background: @mainDark;
 }
 
 .headerCard-body {
-  flex: 4;
-  background: @mainMediumDark
+  background: @mainMediumDark;
+  overflow: auto;
 }

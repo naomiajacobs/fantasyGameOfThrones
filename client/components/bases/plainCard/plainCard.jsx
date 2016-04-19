@@ -7,9 +7,7 @@ class PlainCard extends Component {
 
   render() {
     return (
-      <div className='plainCard'>
-        <div className='plainCard-body'>{this.props.bodyContent}</div>
-      </div>
+      <div className='plainCard'>{this.props.bodyContent}</div>
     )
   }
 

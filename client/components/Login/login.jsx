@@ -43,7 +43,7 @@ class Login extends Component{
   }
 
   render() {
-    return <PlainCard bodyContent={this.renderLogin()}/>;
+    return this.renderLogin();
   }
 };
 
